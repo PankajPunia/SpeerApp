@@ -1,10 +1,12 @@
 import axios from 'axios';
+import Config from 'react-native-config';
 
 import {GitHubUser} from '../types/github';
 
 const BASE_URL = 'https://api.github.com';
 
-const GITHUB_TOKEN = '';
+const GITHUB_TOKEN = Config.GITHUB_TOKEN;
+
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,

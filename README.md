@@ -1,80 +1,88 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# SpeerApp
 
-# Getting Started
+![Android Demo](https://github.com/user-attachments/assets/42ebac6b-9928-4c18-8dd7-1038af1c0635)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- GitHub user search functionality
+- User profile viewing
+- Followers and following list browsing
+- Real-time user data fetching
+- Infinite scroll for user lists
+- Pull-to-refresh functionality
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Prerequisites
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Before running the application, you need to:
 
-```sh
-# Using npm
-npm start
+1. Create a GitHub Personal Access Token:
+   - Go to GitHub Settings > Developer Settings > Personal Access Tokens
+   - Generate a new token with the following scopes:
+     - `read:user`
+     - `user:follow`
+   - Copy the generated token
 
-# OR using Yarn
-yarn start
+2. Create a `.env` file in the root directory with the following content:
+   ```
+   GITHUB_TOKEN=your_personal_access_token_here
+   ```
+
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/PankajPunia/SpeerApp.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd SpeerApp
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Install the necessary pods for iOS:
+   ```sh
+   npx pod-install
+   ```
+
+## Usage
+
+1. Start metro:
+   ```sh
+   npm start
+   ```
+2. Run the application on an Android or iOS simulator:
+   ```sh
+   npm run android
+   npm run ios
+   ```
+
+## Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+├── hooks/            # React query hooks
+├── screens/          # Screens
+├── services/         # API services and data handling
+├── navigation/       # App navigaiton structure
 ```
 
-## Step 2: Build and run your app
+## Overview of Implementation
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Architecture Choices
 
-### Android
+- **Component-Based Architecture**: The application is built using reusable React Native components to ensure modularity and maintainability.
+- **TypeScript**: TypeScript is used to provide type safety and improve code quality.
+- **React Query**: Manages data fetching, caching, and synchronization, simplifying API calls and reducing boilerplate while keeping data up to date
 
-```sh
-# Using npm
-npm run android
+### Navigation
 
-# OR using Yarn
-yarn android
-```
+- **React Navigation**: React Navigation is used for client-side routing to handle navigation between different screens of the application. It uses combination of bottom tab navigator and native stack.
 
-### iOS
+### State Management
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+- **Local State**: Local state is managed using React's `useState` hooks for component-specific state.
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
